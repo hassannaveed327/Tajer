@@ -1,0 +1,347 @@
+
+.footerToBottom {
+    width:100%;
+    display:block;
+    position:relative;
+    float:left
+}
+.footerDiv {
+    font-size:12px;
+    background:#181818;
+    padding:75px 0 0 15px;
+    font-family:montserrat, sans-serif;
+    line-height:18px;
+    color:hsla(0, 0%, 100%, .9)
+}
+.footerDiv .footerTitle {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+}
+.footerDiv .bewakoofLogo {
+    color:#fdd835;
+    font-size:113px;
+    padding:0
+}
+.footerDiv .paymentImg {
+    max-width:300px
+}
+.footerDiv .whiteText {
+    color:#fff
+}
+.footerDiv h1, .footerDiv h2, .footerDiv h3, .footerDiv h4, .footerDiv h5, .footerDiv strong {
+    text-transform:uppercase;
+    margin-bottom:5px;
+    letter-spacing:1px;
+    font-size:15px;
+    display:inline-block
+}
+.footerDiv .paymentGatewaysFooterBar .t-n-c li {
+    line-height:30px
+}
+.footerDiv .connectWithUs .fbInsta {
+    margin-bottom:10px
+}
+.footerDiv .connectWithUs i {
+    font-size:13px
+}
+.footerDiv .nav-tabs li {
+    color:#fdd835;
+    letter-spacing:1px;
+    font-size:12px
+}
+.footerDiv li a {
+    color:hsla(0, 0%, 100%, .9);
+    line-height:18px;
+    display:inline-block
+}
+.footerDiv i {
+    color:hsla(0, 0%, 100%, .9);
+    padding:0 5px
+}
+.footerDiv .subscription {
+    outline:none;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid #c5c5c4;
+    width:55%;
+    height:34px
+}
+.footerDiv .subscribeButton {
+    width:45%;
+    background:#fdd835;
+    border:1px solid #fdd835;
+    height:34px;
+    color:#000;
+    padding:0
+}
+.footerDiv .navigation-footer {
+    margin-top:50px;
+    font-family:montserrat-regular, sans-serif;
+    color:hsla(0, 0%, 100%, .9);
+    font-size:10px;
+    line-height:18px
+}
+.footerDiv .navigation-footer h1, .footerDiv .navigation-footer h2, .footerDiv .navigation-footer h3, .footerDiv .navigation-footer h4, .footerDiv .navigation-footer h5, .footerDiv .navigation-footer strong {
+    font-size:11px!important;
+    margin-bottom:10px
+}
+.footerDiv .navigation-footer li a:hover {
+    color:#fdd835
+}
+.footerDiv .navigation-footer .nav-active span, .footerDiv .navigation-footer h1:hover span {
+    color:#fdd835;
+    border-bottom:2px solid #fdd835
+}
+.footerDiv .tNC li {
+    line-height:30px
+}
+.moreAbtBewakoof button {
+    font-weight: 500;
+    display:block;
+    font-size:14px;
+    font-family:montserrat, sans-serif;
+    color:#000;
+    position:relative;
+    padding:20px 24px;
+    border:.5px solid #979797;
+    width:100%;
+    text-align:left;
+    background:#fff;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.moreAbtBewakoof button i {
+    position:absolute;
+    right:24px;
+    top:23px;
+    font-size:14px
+}
+.footCategoryList {
+    margin-top:20px;
+    border-top:2px solid #979797
+}
+@media screen and (max-width:768px) {
+    .footerForMobile .footerDiv {
+        padding:16px 0
+    }
+    .footerForMobile .footerDiv .footerTitle {
+        margin-bottom:10px;
+        letter-spacing:0;
+        line-height:normal
+    }
+    .footerForMobile .footerLogo {
+        display:none
+    }
+    .footerForMobile .footerMenuSec {
+        margin-bottom:20px;
+        padding:0
+    }
+    .footerForMobile .footerMenuSec:after {
+        display:block;
+        content:"";
+        clear:both
+    }
+    .footerForMobile ul li {
+        display:inline-block
+    }
+    .footerForMobile ul li a {
+        display:block;
+        font-size:12px;
+        letter-spacing:0;
+        font-family:montserrat-regular, sans-serif;
+        line-height:normal;
+        position:relative;
+        padding-right:8px;
+        margin-right:7px
+    }
+    .footerForMobile ul li a:after {
+        content:"";
+        display:inline-block;
+        background:#fff;
+        width:1px;
+        height:11px;
+        position:absolute;
+        right:0;
+        top:6px
+    }
+    .footerForMobile ul li:last-child a:after {
+        content:unset
+    }
+}
+.footerForMobile .connectWithUs a {
+    margin-right:10px
+}
+.footerForMobile .connectWithUs i {
+    font-size:16px
+}
+.footerForMobile .socialIcoMobile {
+    float:left
+}
+.footerForMobile .socialIcoMobile .fbInsta {
+    margin-bottom:10px;
+    display:block
+}
+@media screen and (max-width:768px) {
+    .footerForMobile .socialIcoMobile .fbInsta {
+        display:inline-block;
+        margin:0
+    }
+}
+.footerForMobile .downloadAppIcon a {
+    display:inline-block;
+    padding-right:0;
+    margin-right:6px
+}
+@media screen and (max-width:768px) {
+    .footerForMobile .footCategoryList {
+        margin:0;
+        border:none
+    }
+    .footerForMobile .footCategoryList .footerContainer {
+        margin:0!important
+    }
+    .footerForMobile .footCategoryList .footerContainer ul.footerExtraLinks h4 {
+        font-size:12px;
+        font-family:montserrat, sans-serif;
+        border-right:1px solid #51cccc;
+        margin-bottom:0;
+        padding:0 8px;
+        line-height:12px
+    }
+    .footerForMobile .footCategoryList .footerContainer ul.footerExtraLinks h4:first-child {
+        padding-left:0
+    }
+    .footerForMobile .footCategoryList .footerContainer ul.footerExtraLinks h4:last-child {
+        border-right:0
+    }
+}
+@media screen and (max-width:768px) {
+    .footerForMobile .footCategoryList .tcnForMobile {
+        float:left;
+        width:100%;
+        border-top:2px solid #979797
+    }
+    .footerForMobile .footCategoryList .tcnForMobile ul {
+        margin:15px 0
+    }
+    .footerForMobile .footCategoryList .tcnForMobile ul li {
+        display:block;
+        padding:7px 0
+    }
+    .footerForMobile .footCategoryList .tcnForMobile ul li a {
+        font-size:12px;
+        font-family:montserrat, sans-serif
+    }
+    .footerForMobile .footCategoryList .tcnForMobile ul li a:after {
+        content:unset
+    }
+    .footerForMobile .footCategoryList .tcnForMobile ul li a i {
+        font-size:18px;
+        vertical-align:middle
+    }
+}
+@media screen and (max-width:768px) {
+    .footerForMobile .paymentGatewaysFooterBar {
+        margin-bottom:20px
+    }
+}
+.noPd, .noPdSm {
+    padding:0
+}
+.footCategoryMobile {
+    margin-bottom: 20px;
+}
+.footerDiv p strong {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+ .fcWhite {color: #efcb01;}
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+.footerDiv li a {
+    padding: 2px 0;
+}
+.success {
+    color: #51cccc!important;
+}
+footer h2, footer h1 {
+    color: #fff;
+}
+footer form {
+    position: relative;
+}
+.footerDiv .subscribeButton {
+    width: 45%;
+    background: #c5c5c4;
+    border: 1px solid #c5c5c4;
+    height: 34px;
+    color: #000;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.nav-wrapper ul ul {
+    display: block;
+    padding: 45px 0 0;
+    left: 100%;
+}
+.nav-wrapper ul {
+    list-style: none;
+    padding: 0;
+    transition: all .5s;
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    opacity: 1!important;
+}
+.footerContainer a {
+    color: #fff;
+}
+.moreAbtBewakoof button i {
+    font-size: 20px;
+}
+
+.moreAbtBewakoof button i {
+    position: absolute;
+    right: 24px;
+    top: 23px;
+    font-size: 14px;
+}
+.m-currency-img{
+    width: 30px !important;
+}
+
+.footer-bottom, .footer-bottom .container, .footer-bottom .container-fluid {
+    display: flex;
+    align-items: center;
+}
+.footer-bottom {
+    padding: 25px 0px 5px 0px;
+    border-top: 1px solid #333;
+}
+.footer-bottom, .footer-bottom .container, .footer-bottom .container-fluid {
+    display: flex;
+    align-items: center;
+}
+.social-link {
+    /* margin: 1px 9px 3px 0; */
+    width: 30px;
+    height: 30px;
+    line-height: 28px !important;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    color: inherit;
+    transition: color 0.4s, border 0.4s, background 0.4s;
+    text-align: center;
+}
