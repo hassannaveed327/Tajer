@@ -75,35 +75,36 @@ class LoginController extends Controller
 
         if (Auth::validate($request->only('email', 'password'))) {
             $user = Auth::getLastAttempted();
-            if($user->type != 0) {
-                if ($user->status == 0) {
-                    return redirect()->back()->withInput($request->only('email'))->with([
-                        'info' => 'Your account has been suspended or disabled! Please contact at support.',
-                        'error' => true,
-                        'success' => false,
-                    ]);
-                }
-                /*if ($user->verify == 0) {
-                    return redirect()->back()->withInput($request->only('email'))->with([
-                        'info' => 'Your account is not verified! Please contact at support.',
-                        'error' => true,
-                        'success' => false,
-                    ]);
+//            if($user->user_type != 0) {
+////                if ($user->status == 0) {
+//                    return redirect()->back()->withInput($request->only('email'))->with([
+//                        'info' => 'Your account has been suspended or disabled! Please contact at support.',
+//                        'error' => true,
+//                        'success' => false,
+//                    ]);
+//                }
+//                /*if ($user->verify == 0) {
+//                    return redirect()->back()->withInput($request->only('email'))->with([
+//                        'info' => 'Your account is not verified! Please contact at support.',
+//                        'error' => true,
+//                        'success' => false,
+//                    ]);
+//                }*/
+//            }
+//        }
+            if ($fetch = Auth::attempt($request->only('email', 'password'))) {
+                /*if(Auth::user()->type == 4){
+                    return redirect()->intended('/app/profile');
                 }*/
+                return redirect()->intended('/home');
             }
-        }
-        if ($fetch = Auth::attempt($request->only('email', 'password'))) {
-            /*if(Auth::user()->type == 4){
-                return redirect()->intended('/app/profile');
-            }*/
-            return redirect()->intended('/app/dashboard');
-        }
 
-        return redirect()->back()->withInput($request->only('email'))->with([
-            'info' => 'Credentials do not match!',
-            'error' => true,
-            'success' => false,
-        ]);
+            return redirect()->back()->withInput($request->only('email'))->with([
+                'info' => 'Credentials do not match!',
+                'error' => true,
+                'success' => false,
+            ]);
+        }
     }
 
 

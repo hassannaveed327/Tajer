@@ -433,6 +433,18 @@
                                 }
 
                                 /* Style the dropdown menu links */
+                                .dropdown-content button {
+                                    padding: 12px 16px;
+                                    text-decoration: none;
+                                    display: block;
+                                }
+
+                                /* Change color on hover */
+                                .dropdown-content button:hover {
+                                    background-color: #ddd;
+                                }
+
+                                /* Style the dropdown menu links */
                                 .dropdown-content a {
                                     padding: 12px 16px;
                                     text-decoration: none;
@@ -457,7 +469,18 @@
                                             <a href="{{route('login')}}">Login</a>
                                             <a href="{{ route('register') }}">Sign Up</a>
                                             @auth()
-                                                <a href="{{route('logout')}}">Logout</a>
+                                                <form id="myForm" action="{{route('logout')}}" method="post">
+                                                    @csrf
+                                                    <a href="#" id="submitForm">Logout</a>
+                                                </form>
+                                                <script>
+    document.getElementById('submitForm').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent the default anchor link behavior
+
+        // Trigger the form submission
+        document.getElementById('myForm').submit();
+    });
+</script>
                                             @endauth
                                         </div>
                                     </div>

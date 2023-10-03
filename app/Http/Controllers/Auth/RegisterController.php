@@ -67,14 +67,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'reg_name' => 'required',
-            'reg_email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-            'confirm_password' => 'required|same:password',
-            'reg_mobile' => 'required|numeric|digits:10',
-            'usertype' => 'required|in:1,2',
-        ]);
+
     }
 
     /**
@@ -85,39 +78,51 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $otp = Str::random(6);
-        return User::create([
-            'name' => $data->reg_name,
-            'email' => $data->reg_email,
-            'password' => Hash::make($data->password),
-            'phone' => $data->reg_mobile,
-            'type' => $data->usertype,
-            'otp' => $otp,
-        ]);
+        //
     }
 
 
     public function register(Request $request)
     {
-        $valid = $this->validator($request->all())->validate();
+        $valid =  Validator::make($request->all(), [
+        'name' => 'required',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8',
+        'confirm_password' => 'required|same:password',
+        'phone' => 'required|numeric ',
+        'usertype' => 'required|in:1,2',
+    ]);
         if ($valid->fails()) {
-            return redirect()->back()->with(['error' => true, 'info' => 'Validation Error'])->withInput()->withErrors($valid);
+            return redirect()->back()->with(['error' => true, 'info' => 'Validation Error ' ])->withInput()->withErrors($valid);
         }
-         event(new Registered($user = $this->create($request->all())));
+        $otp = rand(100000, 999999);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'user_type' => $request->usertype,
+            'otp' => $otp,
+        ]);
+//         event(new Registered($user = $this->create($request->all())));
 
-        try {
-            $var2 = [
-                'otp' => $user->otp,
-                'email' => $user->email
-            ];
-            Mail::to($request->email)->send(new SendEmailVerification($var2));
-        }
-        catch (\Exception $e ){
-
-        }
-
-            return redirect('/login')->with(['success' => true,
-           'info'=>'Account Registered Successfully']);
+//        try {
+//            $var2 = [
+//                'otp' => $user->otp,
+//                'email' => $user->email
+//            ];
+//            Mail::to($request->email)->send(new SendEmailVerification($var2));
+//        }
+//        catch (\Exception $e ){
+//
+//        }
+        if ( $user   ){
+            return redirect()->route('verification.otp')->with(['success' => true,
+                'info'=>'Account Registered Successfully','email'=>$request->email]);
+            }
+            else {
+                return redirect()->back()->with(['error' => true, 'info' => 'Something Went Wrong ' ])->withInput()->withErrors($valid);
+            }
     }
 
     public function check_email_valid(Request $request){

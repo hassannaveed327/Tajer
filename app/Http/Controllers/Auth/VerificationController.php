@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
 
 class VerificationController extends Controller
 {
@@ -35,8 +37,20 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
+//        $this->middleware('auth');
+//        $this->middleware('signed')->only('verify');
+//        $this->middleware('throttle:6,1')->only('verify', 'resend');
+    }
+
+    public function otp_verify(Request $request)
+    {
+        $checkOTP = User::where('otp', $request->otp)->first();
+        if ($checkOTP) {
+            $checkOTP->otp_verified = 1;
+            $checkOTP->save();
+            return redirect()->route('login')->with(['success'=> true, 'info' => 'OTP verified successfully']);
+        } else {
+            return redirect()->back()->with(['error' => true, 'info' => 'OTP not matched']);
+        }
     }
 }

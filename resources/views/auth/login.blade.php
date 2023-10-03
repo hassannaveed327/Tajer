@@ -23,12 +23,13 @@
                 {{ session('info') }}
             </div>
         @endif
-        <form id="register-form">
+        <form id="register-form" action="{{route('login-submit')}}" method="post">
+            @csrf
 {{--            <label for="reg_name">Name:</label>--}}
 {{--            <input type="text" name="reg_name" id="reg_name" required><br><br>--}}
 
             <label for="reg_email">Email:</label>
-            <input type="email" class="@error('email')  is-invalid @enderror" name="reg_email" id="reg_email" required><br><br>
+            <input type="email" class="@error('email')  is-invalid @enderror" name="email" id="email" required><br><br>
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required><br><br>
