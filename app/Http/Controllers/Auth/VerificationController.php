@@ -42,15 +42,33 @@ class VerificationController extends Controller
 //        $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 
-    public function otp_verify(Request $request)
+//    public function otp_verify(Request $request)
+//    {
+//        $checkOTP = User::where('otp', $request->otp)->first();
+//        if ($checkOTP) {
+//            $checkOTP->otp_verified = 1;
+//            $checkOTP->save();
+//            return redirect()->route('login')->with(['success'=> true, 'info' => 'OTP verified successfully']);
+//        } else {
+//            return redirect()->back()->with(['error' => true, 'info' => 'OTP not matched']);
+//        }
+//    }
+    public function otp_verification(Request $request)
     {
-        $checkOTP = User::where('otp', $request->otp)->first();
-        if ($checkOTP) {
-            $checkOTP->otp_verified = 1;
-            $checkOTP->save();
-            return redirect()->route('login')->with(['success'=> true, 'info' => 'OTP verified successfully']);
-        } else {
-            return redirect()->back()->with(['error' => true, 'info' => 'OTP not matched']);
+        $user = auth()->user();
+        if ($user->otp == $request->otp) {
+            $user->otp_verified = 1;
+            $user->save();
+            return redirect()->route('home');
         }
+        return redirect()->back()->with(['error' => true, 'info' => 'Invalid OTP']);
+    }
+
+    public function regenerate_otp()
+    {
+        $user = auth()->user();
+        $user->otp = rand(100000, 999999);
+        $user->save();
+        return redirect()->back()->with(['success' => true, 'info' => 'OTP Regenerated']);
     }
 }

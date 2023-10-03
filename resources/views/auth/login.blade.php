@@ -13,23 +13,26 @@
     <div class="container" style="padding:50px 0px; height: 100VH; margin-top: 200px">
         <h1>Login</h1>
         @if(session('success'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success text-white mb-4 mt-4" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 {{ session('info') }}
             </div>
         @elseif(session('error'))
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger text-white mb-4 mt-4" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 {{ session('info') }}
             </div>
         @endif
         <form id="register-form" action="{{route('login-submit')}}" method="post">
             @csrf
-{{--            <label for="reg_name">Name:</label>--}}
-{{--            <input type="text" name="reg_name" id="reg_name" required><br><br>--}}
 
-            <label for="reg_email">Email:</label>
-            <input type="email" class="@error('email')  is-invalid @enderror" name="email" id="email" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" class="@error('email')  is-invalid @enderror" name="email" value="{{old('email')}}" id="email" required><br><br>
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                       </span>
+            @enderror
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required><br><br>

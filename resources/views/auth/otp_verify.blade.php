@@ -13,7 +13,7 @@
     <div class="container" style="padding:50px 0px; height: 100VH; margin-top: 200px">
         <h1>Register</h1>
         @if(session('success'))
-            <div class="alert alert-success  text-white" role="alert">
+            <div class="alert alert-success" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 {{ session('info') }}
             </div>
@@ -28,8 +28,8 @@
             @method('post')
             <label for="otp">Verify OTP:</label>
             <input type="text" class="field" name="otp" id="name" required><br><br>
-            <hidden name="email" value="{{session('email')}}">
             <button type="submit" class="btn">Verify</button>
+            <a type="button" href="{{route('regenerate_otp')}}" class="btn btn-dark">Resend OTP</a>
         </form>
     </div>
 @stop

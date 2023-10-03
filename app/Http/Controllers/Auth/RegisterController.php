@@ -3,21 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\SendEmailVerification;
-use App\Mail\SendRegisterNotification;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use mysql_xdevapi\Exception;
-use PhpParser\Node\Stmt\Return_;
 
 class RegisterController extends Controller
 {
@@ -91,9 +87,10 @@ class RegisterController extends Controller
         'confirm_password' => 'required|same:password',
         'phone' => 'required|numeric ',
         'usertype' => 'required|in:1,2',
-    ]);
+    ],['required'=>'This filed is required','email'=>'Please enter valid email','unique'=>'Email already exist',
+            'same'=>'Password and confirm password not matched','numeric'=>'Please enter valid phone number','in'=>'Please select user type']);
         if ($valid->fails()) {
-            return redirect()->back()->with(['error' => true, 'info' => 'Validation Error ' ])->withInput()->withErrors($valid);
+            return redirect()->back()->withErrors($valid->messages()->toArray())->with(['error' => true, 'info' => 'Validation Error ' ])->withInput();
         }
         $otp = rand(100000, 999999);
         $user = User::create([
@@ -104,20 +101,10 @@ class RegisterController extends Controller
             'user_type' => $request->usertype,
             'otp' => $otp,
         ]);
-//         event(new Registered($user = $this->create($request->all())));
-
-//        try {
-//            $var2 = [
-//                'otp' => $user->otp,
-//                'email' => $user->email
-//            ];
-//            Mail::to($request->email)->send(new SendEmailVerification($var2));
-//        }
-//        catch (\Exception $e ){
-//
 //        }
         if ( $user   ){
-            return redirect()->route('verification.otp')->with(['success' => true,
+            Auth::login($user);
+            return redirect()->route('otp.verify')->with(['success' => true,
                 'info'=>'Account Registered Successfully','email'=>$request->email]);
             }
             else {

@@ -462,13 +462,16 @@
                                 }
                             </style>
                             <div class="col-auto custom-col">
-                                <a data-drawer-trigger aria-controls="login-bar" aria-expanded="false" style="cursor:pointer;" title="My Account">
                                     <div>
                                         <img class="icon icon-person filter dropbtn" id="showlg" onclick="toggleDropdown()"  src="https://thetajer.com/images/header-icon/user.svg" >
-                                        <div id="myDropdown" class="dropdown-content">
+                                        <div id="myDropdown" class="dropdown-content mt-1">
+                                            @if(!\Illuminate\Support\Facades\Auth::check())
                                             <a href="{{route('login')}}">Login</a>
                                             <a href="{{ route('register') }}">Sign Up</a>
+                                            @endif
                                             @auth()
+{{--                                                <a href="{{route('dashboard')}}">Dashboard</a>--}}
+                                                <a href="#">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                                                 <form id="myForm" action="{{route('logout')}}" method="post">
                                                     @csrf
                                                     <a href="#" id="submitForm">Logout</a>
@@ -484,7 +487,6 @@
                                             @endauth
                                         </div>
                                     </div>
-                                </a>
                             </div>
                             <script>
                                 function toggleDropdown() {
@@ -519,7 +521,9 @@
             <ul class="mmenu mmenu-js ml-2">
 
                 <li class="mmenu-item--mega"><a href="/" ><span>Home</span></a></li>
-
+                @auth()
+                <li class="mmenu-item--mega"><a href="{{route('dashboard')}}" ><span>Dashboard</span></a></li>
+                @endauth
                 <li class="mmenu-item--mega"><a href="/about-us" ><span>About Us</span></a></li>
 
 
