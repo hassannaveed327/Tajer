@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="42px" height="38px" viewBox="0 0 42 38" enable-background="new 0 0 42 38" xml:space="preserve">
+<title>icon_cart</title>
+<g id="icon_cart" display="none">
+	<g id="Group-4" display="inline">
+		<g id="Cart" transform="translate(9.000000, 9.000000)">
+			<path id="Rectangle_1_" fill="#FFFFFF" stroke="#000000" stroke-width="1.4" stroke-linejoin="round" d="M-0.903,0.99h25.805
+				c0.808,0,1.503,0.574,1.656,1.367l4.454,23.081c0.177,0.915-0.422,1.8-1.337,1.976c-0.105,0.02-0.212,0.031-0.32,0.031H-5.357
+				c-0.932,0-1.687-0.755-1.687-1.687c0-0.107,0.01-0.214,0.031-0.32l4.454-23.081C-2.406,1.563-1.711,0.99-0.903,0.99z"/>
+			<path id="Path-6" fill="none" stroke="#000000" stroke-width="1.4" stroke-linecap="round" d="M3.507,6.051
+				C2.715-2.946,5.61-7.445,12.193-7.445s9.312,4.499,8.187,13.496"/>
+		</g>
+	</g>
+</g>
+<g id="icon_search" display="none">
+	<g id="loupe" transform="translate(7.000000, 7.000000)" display="inline">
+		<path id="Shape" d="M31.08,26.993L21.006,16.919c1.951-2.41,3.126-5.473,3.126-8.809c0-7.731-6.291-14.022-14.022-14.022
+			S-3.912,0.379-3.912,8.11S2.378,22.132,10.11,22.132c3.336,0,6.399-1.175,8.809-3.126L28.993,29.08
+			c0.288,0.288,0.666,0.432,1.044,0.432s0.756-0.145,1.044-0.432C31.657,28.503,31.657,27.57,31.08,26.993z M10.11,19.18
+			c-6.105,0-11.07-4.965-11.07-11.07S4.005-2.96,10.11-2.96S21.18,2.005,21.18,8.11S16.215,19.18,10.11,19.18z"/>
+	</g>
+</g>
+<g id="icon_wishlist">
+	<g id="Group-3">
+		<path id="Rectangle_2_" fill="none" stroke="#000000" stroke-width="1.4" stroke-linejoin="round" d="M9.667,1.5h21.667
+			C32.254,1.5,33,2.246,33,3.167V36.5l0,0l-12.5-6.563L8,36.5V3.167C8,2.246,8.746,1.5,9.667,1.5z"/>
+	</g>
+</g>
+</svg>
